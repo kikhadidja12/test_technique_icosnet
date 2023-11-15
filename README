@@ -1,0 +1,99 @@
+# Nom de Votre API
+
+## Introduction
+
+Bienvenue dans la documentation de notre API d'ordres (Order Management API). 
+
+## Authentification
+
+L'API nécessite une authentification pour certaines opérations. Assurez-vous d'inclure un en-tête d'autorisation avec le jeton d'accès valide pour les demandes nécessitant une authentification.
+
+## Endpoints
+
+### 1. Créer un nouveau Order
+
+- **URL:** `/orders/create`
+- **Méthode:** `POST`
+- **Exemple de corps de la requête:**
+  ```json
+  {
+    "title": "Nouvelle Commande",
+    "description": "Description de la commande",
+    "price": 50.00,
+    "status": "Pending"
+  }
+
+### 2. Mettre à jour le statut d'un Order
+
+**URL:** `/orders/:id`
+- **Méthode:** `PUT`
+- **Exemple de corps de la requête:**
+
+
+### 3. Lire un Order
+
+**URL:** `/orders/:id`
+- **Méthode:** `GET`
+- **Réponse réussie (200 OK):**
+  ```json 
+  {
+  "id": "123",
+  "title": "Nouvelle Commande",
+  "description": "Description de la commande",
+  "price": 50.00,
+  "status": "Processing",
+  "createdAt": "2023-01-01T12:00:00Z"
+  }
+
+### 4. Supprimer un Order
+
+**URL:** `/orders/:id`
+- **Méthode:** `DELETE`
+- **Réponse réussie (200 OK):**
+  ```json 
+   {"ordre suprime!"
+   }
+
+### 5. Rechercher un Order
+**URL:** `/orders/search/:title`
+- **Méthode:** `GET`
+- **Réponse réussie (200 OK):**
+  ```json 
+  [
+  {
+    "id": "123",
+    "title": "Nouvelle Commande",
+    "description": "Description de la commande",
+    "price": 50.00,
+    "status": "Processing",
+    "createdAt": "2023-01-01T12:00:00Z"
+  },
+  // Autres résultats...
+  ]
+### 6.Pagination
+**URL:** `/orders`
+- **Méthode:** `GET`
+- **Paramètres de requête optionnels:** `pag (Pagination, ex: /orders?pag=2)`
+- **Réponse réussie (200 OK):**
+```json 
+  [
+  {
+    "id": "123",
+    "title": "Nouvelle Commande",
+    "description": "Description de la commande",
+    "price": 50.00,
+    "status": "Processing",
+    "createdAt": "2023-01-01T12:00:00Z"
+  },
+  // Autres résultats...
+  ]
+#### Remarque :
+J'ai rajouté d'autres endpoints comme:
+**URL:** `/user` 
+**URL:** `/auth` 
+
+## Erreurs et Gestion des Exceptions
+En cas d'erreur, l'API renverra un code d'erreur approprié avec un message explicatif. 
+
+## Remarques et Spécifications du Projet
+J'ai intégré plusieurs packages essentiels dans le projet pour faciliter le développement (nodemn, mongoose)et renforcer la sécurité (Crypto-JS ,jsonwebtoken, cors). Vous pouvez retrouver la liste complète de ces packages dans le fichier package.json. 
